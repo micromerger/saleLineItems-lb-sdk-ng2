@@ -2,15 +2,15 @@
 <hr style="-webkit-text-fill-color:white">
 <form (submit)="add()" class="form-inline">
     <div class="input-group col-sm-5">
-        <input type="text" class="form-control" name="item" [(ngModel)]="airport.name" placeholder="Item Name">
+        <input type="text" class="form-control" name="item" [(ngModel)]="item.name" placeholder="Item Name">
     </div>
     <div class="input-group col-sm-5">
-        <input type="number" class="form-control" name="item" [(ngModel)]="airport.city" placeholder="Price">
+        <input type="number" class="form-control" name="item" [(ngModel)]="item.price" placeholder="Price">
     </div>
     <div class="input-group">
-        <button type="submit" class="btn btn-primary">submit</button>
-        <button type="edit" class="btn btn-primary" *ngIf="airportedit" (click)=a irportSubmitRecord()>Submit</button>
-        <button type="edit" class="btn btn-primary" *ngIf="airportedit" (click)=c ancel()>Cancel</button>
+        <button type="submit" class="btn btn-primary" *ngIf="!itemedit">submit</button>
+        <button type="edit" class="btn btn-primary" *ngIf="itemedit" (click)="itemSubmitRecord()">Submit</button>
+        <button type="edit" class="btn btn-primary" *ngIf="itemedit" (click)="cancel()">Cancel</button>
     </div>
 </form>
 <br /><br />
@@ -26,13 +26,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let airport of airports">
-                <td>{{airport.id}}</td>
-                <td>{{airport.name}}</td>
-                <td>{{airport.city}}</td>
-                <td><button type="add" class="btn btn-primary" (click)=e ditAirport(airport.id)>Edit</button>
+            <tr *ngFor="let item of items">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td><button type="add" class="btn btn-primary" (click)="editItem(item.id)">Edit</button>
                 </td>
-                <td><button type="add" class="btn btn-danger" (click)=d eleteAirport(airport)>Delete</button></td>
+                <td><button type="add" class="btn btn-danger" (click)="deleteItem(item)">Delete</button></td>
             </tr>
         </tbody>
     </table>
