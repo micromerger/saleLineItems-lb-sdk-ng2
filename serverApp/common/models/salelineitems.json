@@ -12,7 +12,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "items": {
+      "type": "belongsTo",
+      "model": "items",
+      "foreignKey": "items"
+    },
+    "sales": {
+      "type": "belongsTo",
+      "model": "sales",
+      "foreignKey": "sales"
+    }
+  },
   "acls": [],
   "methods": {}
 }

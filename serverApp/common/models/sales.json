@@ -15,7 +15,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "items": {
+      "type": "hasMany",
+      "model": "items",
+      "foreignKey": "items",
+      "through": "salelineitems"
+    }
+  },
   "acls": [],
   "methods": {}
 }

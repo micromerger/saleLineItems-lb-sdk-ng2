@@ -3,16 +3,21 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { SDKBrowserModule } from './shared/sdk';
 import { AppComponent } from './app.component';
-
+import { ItemsComponent } from './my-app-components/items/items.component';
+import { SaleComponent } from './my-app-components/sale/sale.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ItemsComponent,
+    SaleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    SDKBrowserModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,18 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-defaukt" role="navigation" bs-navbar style="background: firebrick; -webkit-text-fill-color: white">
+    <div class="navbar-header">
+        <a class="navbar-brand">SaleLine Items</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a routerLink="/items">Item</a></li>
+        <li><a routerLink="/sale">Item</a></li>
+    </ul>
+</nav>
+<div class="container theme-showcase" role="main">
+    <!--Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1 style="text-align: center; -webkit-text-fill-color: firebrick">SaleLine Items</h1>
+    </div>
+    <hr>
+    <div class="jumbotron">
+        <router-outlet></router-outlet>
+    </div>
