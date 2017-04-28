@@ -8,8 +8,8 @@ declare var Object: any;
 export interface SalelineitemsInterface {
   "qty"?: number;
   "id"?: number;
-  "items"?: number;
-  "sales"?: number;
+  "item"?: number;
+  "sale"?: number;
   items?: Items;
   sales?: Sales;
 }
@@ -17,8 +17,8 @@ export interface SalelineitemsInterface {
 export class Salelineitems implements SalelineitemsInterface {
   "qty": number;
   "id": number;
-  "items": number;
-  "sales": number;
+  "item": number;
+  "sale": number;
   items: Items;
   sales: Sales;
   constructor(data?: SalelineitemsInterface) {
@@ -60,12 +60,12 @@ export class Salelineitems implements SalelineitemsInterface {
           name: 'id',
           type: 'number'
         },
-        "items": {
-          name: 'items',
+        "item": {
+          name: 'item',
           type: 'number'
         },
-        "sales": {
-          name: 'sales',
+        "sale": {
+          name: 'sale',
           type: 'number'
         },
       },

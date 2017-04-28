@@ -1,29 +1,29 @@
 {
-  "name": "salelineitems",
-  "plural": "salelineitems",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "qty": {
-      "type": "number"
-    }
-  },
-  "validations": [],
-  "relations": {
-    "items": {
-      "type": "belongsTo",
-      "model": "items",
-      "foreignKey": "items"
+    "name": "salelineitems",
+    "plural": "salelineitems",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "sales": {
-      "type": "belongsTo",
-      "model": "sales",
-      "foreignKey": "sales"
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "properties": {
+        "qty": {
+            "type": "number"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "items": {
+            "type": "belongsTo",
+            "model": "items",
+            "foreignKey": "item"
+        },
+        "sales": {
+            "type": "belongsTo",
+            "model": "sales",
+            "foreignKey": "sale"
+        }
+    },
+    "acls": [],
+    "methods": {}
 }
