@@ -15,7 +15,7 @@ export class ItemsComponent implements OnInit {
   private reference : FireLoopRef<Items>;
   private items     : Items[] = new Array<Items>();
   constructor(private rt: RealTime) {
-     this.rt.onReady().subscribe(() => {
+    this.rt.onReady().subscribe(() => {
     this.reference = this.rt.FireLoop.ref<Items>(Items);
     this.reference.on('change').subscribe(( items : Items[]) => this.items = items);
      });

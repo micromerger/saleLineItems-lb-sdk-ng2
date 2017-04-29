@@ -5,11 +5,15 @@
         <input type="text" class="form-control" name="item" [(ngModel)]="item.name" placeholder="Item Name">
     </div>
 </form>-->
+
 <form class="form-horizontal">
     <div class="form-group col-sm-offset-5">
         <div class="input-group col-sm-offset-8">
             <span class="input-group-addon "><i class="glyphicon glyphicon-search "></i></span>
-            <input type="text " class="form-control " placeholder="Item Name ">
+            <input type="text" class="form-control " list="searchedItems" (keyup.enter)="selectedItem(itemSearch)" name="searchItem" [(ngModel)]="itemSearch" placeholder="Item Name ">
+            <datalist id="searchedItems">
+        <option *ngFor="let list of items" [value]="list.name">{{list.name}}</option>
+      </datalist>
         </div>
     </div>
 </form>
@@ -27,12 +31,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><input disabled type="number " class="form-control " placeholder="Item ID "></td>
-                <td><input disabled type="text " class="form-control " placeholder="Item Name "></td>
-                <td><input disabled type="number" class="form-control" placeholder="Price"></td>
-                <td><input type="number" class="form-control" min="1" placeholder="qty"></td>
-                <td><input disabled type="number" class="form-control" placeholder="Amount"></td>
+            <tr *ngFor="let item of selectedItems; let i = index; trackBy:trackByIndex">
+                <td><input disabled type="number " class="form-control " placeholder="Item ID " value="{{item.id}}"></td>
+                <td><input disabled type="text " class="form-control " placeholder="Item Name " value="{{item.name}}"></td>
+                <td><input disabled type="number" class="form-control" placeholder="Price" value="{{item.price}}"></td>
+                <td><input type="number" class="form-control" min="1" placeholder="qty" [(ngModel)]="quantity[i]" (change)="totalAmount()"></td>
+                <td><input disabled type="number" class="form-control" placeholder="Amount" value="{{item.price * quantity[i]}}"></td>
                 <td><button type="add " class="btn btn-danger " (click)="deleteItem(item) ">Delete</button></td>
             </tr>
         </tbody>
@@ -45,10 +49,11 @@
                 <td></td>
                 <td>
                     <div class="input-group">
-                        <span class="input-group-addon "><i class="glyphicon glyphicon-currency ">RS</i></span>
-                        <input disabled type="number " class="form-control " placeholder="Total Amount">
+                        <span class="input-group-addon "><i class="glyphicon glyphicon-currency ">total</i></span>
+                        <input disabled type="number " class="form-control " placeholder="Total Amount" [(ngModel)]="total">
                     </div>
                 </td>
+                <td><button type="add " class="btn btn-success" (click)="onSaveSale()">Save</button></td>
             </tr>
         </tfoot>
     </table>
